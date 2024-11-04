@@ -1,0 +1,150 @@
+//problem -1:method overloading
+
+import java.util.Scanner;
+
+public class MethodOverloadingExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter two integers: ");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        System.out.print("Enter two doubles: ");
+        double x = scanner.nextDouble();
+        double y = scanner.nextDouble();
+
+        int sum1 = add(a, b);
+        double sum2 = add(x, y);
+
+        System.out.println("Sum of integers: " + sum1);
+        System.out.println("Sum of doubles: " + sum2);
+    }
+
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static double add(double a, double b) {
+        return a + b;
+    }
+}
+
+
+
+
+//problem-2:Single Inheritance
+
+class Animal {
+    public void eat() {
+        System.out.println("Software Development Lab");
+    }
+}
+
+class Dog extends Animal {
+    public void bark() {
+        System.out.println("Java Lab");
+    }
+}
+
+public class SingleInheritanceExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+
+
+//problem-3: multilevel inheritance 
+
+class Animal {
+    public void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class Dog extends Animal {
+    public void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+class Puppy extends Dog {
+    public void play() {
+        System.out.println("Puppy is playing.");
+    }
+}
+
+public class MultilevelInheritanceExample {
+    public static void main(String[] args) {
+        Puppy puppy = new Puppy();
+        puppy.eat();
+        puppy.bark();
+        puppy.play();
+    }
+}
+
+//problem-4:Hierarchical Inheritance
+
+class Vehicle {
+    public void move() {
+        System.out.println("Vehicle is moving.");
+    }
+}
+
+class Car extends Vehicle {
+    public void accelerate() {
+        System.out.println("Car is accelerating.");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    public void start() {
+        System.out.println("Motorcycle is starting.");
+    }
+}
+
+public class HierarchicalInheritanceExample {
+    public static void main(String[] args) {
+        Car car = new Car();
+        Motorcycle motorcycle = new Motorcycle();
+
+        car.move();
+        car.accelerate();
+
+        motorcycle.move();
+        motorcycle.start();
+    }
+}
+
+
+//problem -5:costructor
+
+public class Contractor {
+    private String name;
+    private double hourlyRate;
+    private int hoursWorked;
+
+    public Contractor(String name, double hourlyRate) {
+        this.name = name;
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = 0;
+    }
+
+    public void addHours(int hours) {
+        hoursWorked += hours;
+    }
+
+    public double calculatePay() {
+        return hoursWorked * hourlyRate;
+    }
+
+    public static void main(String[] args) {
+        Contractor contractor = new Contractor("Alice", 25.0);
+        contractor.addHours(40);
+        contractor.addHours(20);
+
+        System.out.println("Total Pay: $" + contractor.calculatePay());
+    }
+}
