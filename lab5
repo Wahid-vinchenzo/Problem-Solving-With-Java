@@ -1,0 +1,157 @@
+/*
+problem 1:  Convert the characters of a string into opposite case.
+*/
+
+import java.util.Scanner;
+
+public class ConvertCase {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        String outputString = "";
+        for (int i = 0; i < inputString.length(); i++) {
+            char c = inputString.charAt(i);
+            if (Character.isUpperCase(c)) {
+                outputString += Character.toLowerCase(c);
+            } else {
+                outputString += Character.toUpperCase(c);
+            }
+        }
+
+        System.out.println("Converted string: " + outputString);
+    }
+}
+
+
+
+/*
+problem -2 : code to count frequency of charrecter.
+*/ 
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class CharacterFrequency {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        Map<Character, Integer> freqMap = new HashMap<>();
+
+        for (char c : inputString.toCharArray()) {
+            freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+        }
+
+        for (Map.Entry<Character, Integer> entry : freqMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
+
+
+// problem-3: check palindrom.
+
+import java.util.Scanner;
+
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        String reversedString = new StringBuilder(inputString).reverse().toString();
+
+        if (inputString.equals(reversedString)) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+    }
+}
+
+
+//problem-4:check teo string are anagram....
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AnagramChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String str1 = scanner.nextLine();
+        System.out.print("Enter the second string: ");
+        String str2 = scanner.nextLine();
+
+        
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
+        
+        if (str1.length() != str2.length()) {
+            System.out.println("The strings are not anagrams.");
+            return;
+        }
+
+        
+        char[] charArray1 = str1.toCharArray();
+        char[] charArray2 = str2.toCharArray();
+        Arrays.sort(charArray1);
+        Arrays.sort(charArray2);
+
+        if (Arrays.equals(charArray1, charArray2)) {
+            System.out.println("The strings are anagrams.");
+        } else {
+            System.out.println("The strings are not anagrams.");
+        }
+    }
+}
+
+//problem-5: add 2 big inteager..
+
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class BigIntegerSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first integer: ");
+        String input1 = scanner.nextLine();
+
+        System.out.print("Enter the second integer: ");
+        String input2 = scanner.nextLine();
+
+        BigInteger a = new BigInteger(input1);
+        BigInteger b = new BigInteger(input2);
+
+        BigInteger sum = a.add(b);
+
+        System.out.println("The sum of\n" +
+                           a + "\nand\n" + b + "\nis\n" + sum + "\n");
+    }
+}
+//problem -6: sorting string
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class StringSort {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+
+        char[] charArray = inputString.toCharArray();
+
+        Arrays.sort(charArray);
+
+        String sortedString = new String(charArray);
+
+        System.out.println("Sorted string: " + sortedString);
+    }
+}
