@@ -1,0 +1,138 @@
+//problem-6:Final Keyword
+//(final keyword used to conver a variable into constant...if we use this keyword the variable will not modified later........)
+
+
+public class FinalKeywordExample {
+    public static void main(String[] args) {
+        final double PI = 3.14159; 
+
+        System.out.println("Value of PI: " + PI);
+
+       
+        double radius = 5.0;
+        double area = PI * radius * radius;
+        System.out.println("Area of circle: " + area);
+    }
+}
+
+//problem -7: supper class
+//(we can call mother class method in child class methode by useing super keyword........)
+
+class Animal {
+    public void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating dog food.");
+        super.eat();  // Call the parent class's eat() method
+    }
+
+    public void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+public class SuperKeywordExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();
+        dog.bark();
+    }
+}
+
+//problem-8:Static Keyword
+
+
+class MyClass {
+    public static void main(String[] args) {
+        // Accessing a static variable
+        System.out.println("Value of PI: " + Math.PI);
+
+        // Calling a static method
+        System.out.println("Current time: " + System.currentTimeMillis());
+
+        
+        MyClass obj1 = new MyClass();
+        MyClass obj2 = new MyClass();
+
+        // Accessing and modifying a static variable
+        System.out.println("Initial count: " + MyClass.count);
+        MyClass.count = 10;
+        System.out.println("Modified count: " + MyClass.count);
+    }
+
+    static int count = 0; // Static variable
+
+    public MyClass() {
+        count++;
+    }
+
+    public static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+}
+
+//problem-9:abstract class
+
+abstract class Shape {
+    public abstract void draw();
+}
+
+class Rectangle extends Shape {
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+class Circle extends Shape {
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        Shape shape1 = new Rectangle();
+        Shape shape2 = new Circle();
+
+        shape1.draw();
+        shape2.draw();
+    }
+}
+
+//problem-10:overriding methode
+
+class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Animal animal = new Dog();
+        animal.makeSound(); // Output: Dog barks
+
+        Animal animal2 = new Cat();
+        animal2.makeSound(); // Output: Cat meows
+    }
+}
+
